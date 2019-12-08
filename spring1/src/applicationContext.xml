@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+						<!-- 注入 -->
+	<!-- 相当于实例化操作  HelloBean helloBean = new HelloBean();-->
+	<bean class="com.sc.bean.HelloBean" id="helloBean">
+		<!-- 给属性helloWorld注入值 -->
+		<property name="helloWorld">
+			<value>你好spring!</value>
+		</property>
+		
+		<property name="myList">
+			<list>
+				<value>aa</value>
+				<value>bb</value>
+				<value>cc</value>
+			</list>
+		</property>
+		
+		<property name="mySet">
+			<set>
+				<value>aa</value>
+				<value>bb</value>
+				<value>cc</value>
+			</set>
+		</property>
+		
+		<property name="myMap">
+			<map>
+				<entry key="a" value="aa"></entry>
+				<entry key="b" value="bb"></entry>
+			</map>
+		</property>
+		
+		<property name="myPro">
+			<props>
+				<prop key="a">aa</prop>
+				<prop key="b">bb</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean class="com.sc.ink.RedInk" id="redInk"></bean>
+	<bean class="com.sc.ink.BlackInk" id="blackInk"></bean>
+	
+	<bean class="com.sc.paper.A3Paper" id="a3"></bean>
+	<bean class="com.sc.paper.A4Paper" id="a4"></bean>
+	
+												<!--scope设置单例多例模式，默认-"singleton"单例模式（最常用），"prototype"多例模式（web项目多线程任务可能用到）-->
+	<bean class="com.sc.print.Printer" id="printer" scope="prototype">
+		<!-- 动态注入   如果对象类型注入值使用ref -->
+		<property name="ink" ref="blackInk"></property>
+		<property name="paper" ref="a3"></property>
+	</bean>
+
+</beans>
