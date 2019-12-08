@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+
+	<bean class="com.sc.service.impl.ServiceBuyImpl" id="serviceBuyImpl"></bean>
+	
+	<bean class="com.sc.service.money.TailMoney" id="money"></bean>
+
+	<!-- xml配置方式 -->
+<!-- 	<bean class="com.sc.buylogs.LogAspect" id="logAspect"></bean>
+	<aop:config>
+		<aop:aspect ref="logAspect">
+			<aop:pointcut expression="execution(* com.sc.service.impl.*.*(..))" id="pc"/>
+			<aop:before method="before" pointcut-ref="pc"/>
+			<aop:after-returning method="after" pointcut-ref="pc" returning="rev"/>
+		</aop:aspect>
+	</aop:config> -->
+	
+	
+	<bean class="com.sc.buylogs.LogAspect" id="logAspect"></bean>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>
