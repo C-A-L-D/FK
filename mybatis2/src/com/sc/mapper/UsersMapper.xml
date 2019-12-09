@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		<!-- 对应接口的完整路径 -->
+<mapper namespace="com.sc.mapper.UsersMapper">
+						<!-- 参数类型 -->
+	<insert id="add" parameterType="Users" keyProperty="uid" useGeneratedKeys="true">
+		insert into users values{null,#{uname},#{upass},#{sex}},#{age},#{birthday},#{active},#{pic}
+	</insert>
+	
+	<update id="update" parameterType="Users">
+		update users set uname=#{uname},upass=#{upass},sex=#{sex},age=#{age},birthday=#{birthday},active=#{active},pic=#{pic}
+		 where uid=#{uid}
+	</update>
+	
+	<delete id="delete" parameterType="Users">
+		delete from users where uid=#{uid}
+	</delete>
+						<!-- 结果类型 -->
+	<select id="select" resultType="Users">
+		select * from users
+	</select>
+	
+	<select id="get" parameterType="java.lang.Integer" resultType="Users">
+		select * from users where uid=#{uid}
+	</select>
+	
+</mapper>

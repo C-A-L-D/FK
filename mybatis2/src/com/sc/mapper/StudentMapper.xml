@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		<!-- 对应接口的完整路径 -->
+<mapper namespace="com.sc.mapper.StudentMapper">
+	
+	<!-- 结果映射 -->						<!-- 添加自动映射参数后，下面映射就不用配了，但是主键ID必须配 -->
+	<resultMap type="Student" id="studentMap" autoMapping="true">
+		<id column="stuId" property="stuId"/>
+		<!-- 多对多配置 -->
+		<collection property="course" ofType="Course" autoMapping="true">
+			<id column="courseId" property="courseId"/>
+		</collection>
+	</resultMap>
+	
+	<select id="select" resultMap="studentMap">
+		SELECT s.*,stucourse.stuCourseId,c.* FROM student s 
+		LEFT JOIN stucourse ON s.stuId=stucourse.stuId 
+		LEFT JOIN course c ON stucourse.courseId=c.courseId 
+		WHERE s.stuName=#{stuName} OR c.courseName=#{courseName}
+	</select>
+</mapper>
