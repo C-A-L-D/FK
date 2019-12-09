@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
   <!--数据库驱动,最好不要有中文字符,不然会找不到-->
-  <classPathEntry location="D:/mysql-connector-java-5.1.15-bin.jar" />
+  <classPathEntry location="D:/ojdbc6-11.2.0.1.0.jar" />
   <context id="MysqlTables" targetRuntime="MyBatis3">
   <!-- 插件配置 -->
     <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
@@ -14,10 +14,10 @@
       <property name="suppressDate" value="true" />  
     </commentGenerator> 
     <!-- 数据库连接 -->  
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://localhost:3306/db190203"
-        userId="root"
-        password="root">
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+        connectionURL="jdbc:oracle:thin:@localhost:1521:orcl"
+        userId="CRM"
+        password="CRM">
     </jdbcConnection>
     
     <javaTypeResolver >
@@ -38,21 +38,191 @@
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     <!-- 要对那些数据表进行生成操作，必须要有一个. --> 
-    <table schema="" tableName="sys_permission" domainObjectName="sys_permission"  
+    <table schema="" tableName="OFF_ASSESSTARGET" domainObjectName="OFF_ASSESSTARGET"  
     enableCountByExample="true" 
     enableUpdateByExample="true" enableDeleteByExample="true"    
      enableSelectByExample="true" selectByExampleQueryId="true">
       <property name="useActualColumnNames" value="false"/>
     </table>
     
-     <table schema="" tableName="sys_role" domainObjectName="Sys_role"  
+     <table schema="" tableName="OFF_ASSESSTASK" domainObjectName="OFF_ASSESSTASK"  
     enableCountByExample="true" 
     enableUpdateByExample="true" enableDeleteByExample="true"    
      enableSelectByExample="true" selectByExampleQueryId="true">
       <property name="useActualColumnNames" value="false"/>
     </table>
     
-     <table schema="" tableName="sys_user" domainObjectName="Sys_user"  
+     <table schema="" tableName="OFF_MESS" domainObjectName="OFF_MESS"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <table schema="" tableName="OFF_MESSDETAIL" domainObjectName="OFF_MESSDETAIL"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    
+        <table schema="" tableName="OFF_PERPLAN" domainObjectName="OFF_PERPLAN"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="OFF_TASKDETAIL" domainObjectName="OFF_TASKDETAIL"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="STORE_GINFO" domainObjectName="STORE_GINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <table schema="" tableName="STORE_WHINFO" domainObjectName="STORE_WHINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    
+        <table schema="" tableName="SYS_DEPARTMENT" domainObjectName="SYS_DEPARTMENT"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="SYS_GONGSIINFO" domainObjectName="SYS_GONGSIINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="SYS_JOBINFO" domainObjectName="SYS_JOBINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <table schema="" tableName="SYS_LOGGONG" domainObjectName="SYS_LOGGONG"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    
+        <table schema="" tableName="SYS_POWER_ROLE" domainObjectName="SYS_POWER_ROLE"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="SYS_POWERCOLUMN" domainObjectName="SYS_POWERCOLUMN"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="SYS_POWERINFO" domainObjectName="SYS_POWERINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <table schema="" tableName="SYS_ROLE" domainObjectName="SYS_ROLE"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    
+    
+    
+    
+        <table schema="" tableName="SYS_USERS" domainObjectName="SYS_USERS"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="SYS_USERS_ROLE" domainObjectName="SYS_USERS_ROLE"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="SYS_USERSINFO" domainObjectName="SYS_USERSINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <table schema="" tableName="XIAOSHOU_KEHUFANKUI" domainObjectName="XIAOSHOU_KEHUFANKUI"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    
+        <table schema="" tableName="XIAOSHOU_KEHULIANXIJILU" domainObjectName="XIAOSHOU_KEHULIANXIJILU"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="XIAOSHOU_KEHULIANXIREN" domainObjectName="XIAOSHOU_KEHULIANXIREN"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="XIAOSHOU_KEHULIUSHI" domainObjectName="XIAOSHOU_KEHULIUSHI"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <table schema="" tableName="XIAOSHOU_KEHUXINXI" domainObjectName="XIAOSHOU_KEHUXINXI"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    
+        <table schema="" tableName="XIAOSHOU_SELLINFO" domainObjectName="XIAOSHOU_SELLINFO"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="XIAOSHOU_SELLOUT" domainObjectName="XIAOSHOU_SELLOUT"  
     enableCountByExample="true" 
     enableUpdateByExample="true" enableDeleteByExample="true"    
      enableSelectByExample="true" selectByExampleQueryId="true">
