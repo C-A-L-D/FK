@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <!--数据库驱动,最好不要有中文字符,不然会找不到-->
+  <classPathEntry location="D:/mysql-connector-java-5.1.15-bin.jar" />
+  <context id="MysqlTables" targetRuntime="MyBatis3">
+  <!-- 插件配置 -->
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+  <!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->  
+    <commentGenerator>  
+      <property name="suppressAllComments" value="true" />  
+      <property name="suppressDate" value="true" />  
+    </commentGenerator> 
+    <!-- 数据库连接 -->  
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/db190203"
+        userId="root"
+        password="root">
+    </jdbcConnection>
+    
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    <!-- 数据表对应的model 层  --> 
+    <javaModelGenerator targetPackage="com.sc.entity" targetProject=".\src">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+      <property name="constructorBased" value="true"/>
+    </javaModelGenerator>
+    <!-- sql mapper 隐射配置文件 -->
+    <sqlMapGenerator targetPackage="com.sc.mapper"  targetProject=".\src">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <!-- 在ibatis2 中是dao层，但在mybatis3中，其实就是mapper接口 --> 
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.sc.mapper"  targetProject=".\src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    <!-- 要对那些数据表进行生成操作，必须要有一个. --> 
+    <table schema="" tableName="sys_permission" domainObjectName="sys_permission"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="sys_role" domainObjectName="Sys_role"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+     <table schema="" tableName="sys_user" domainObjectName="Sys_user"  
+    enableCountByExample="true" 
+    enableUpdateByExample="true" enableDeleteByExample="true"    
+     enableSelectByExample="true" selectByExampleQueryId="true">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+  </context>
+</generatorConfiguration>
