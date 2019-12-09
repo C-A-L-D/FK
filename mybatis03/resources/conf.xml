@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+   
+   <!-- 引入数据库属性文件 -->
+   <properties resource="jdbc.properties"></properties>
+   
+   <settings>
+      <!-- 启用驼峰命名法则,自动把形如stu_name列映射到stuName属性 -->
+      <setting name="mapUnderscoreToCamelCase" value="true"/>
+   </settings>
+   
+   <typeAliases> 
+                        <!-- 实体类起别名 -->
+      <!-- <typeAlias type="com.sc.entity.Users" alias="Users"/> -->
+     <!-- 配置实体所在的包，起别名，默认就是类名 -->
+      <package name="com.sc.entity"/>
+   </typeAliases>
+   <!-- 配置环境 -->
+   <environments default="development">
+       <environment id="development">
+          <!-- 配置事务管理器 -->
+          <transactionManager type="JDBC"></transactionManager>
+          <!-- 配置连接池数据源 -->
+          <dataSource type="POOLED">
+              <property name="driver" value="${jdbc.driver}"/>
+              <property name="url" value="${jdbc.url}"/>
+              <property name="username" value="${jdbc.username}"/>
+              <property name="password" value="${jdbc.password}"/>
+          </dataSource>
+       </environment>
+   </environments>
+   <!-- 配置sql映射文件 -->
+   <mappers>
+      <!-- <mapper resource="com/sc/mapper/UsersMapper.xml"/> -->
+      <!-- 配置mapper映射文件所在的包 -->
+      <package name="com.sc.mapper"/>
+   </mappers>
+   
+</configuration>
