@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                   <!-- 对应接口的完整路径 -->
+<mapper namespace="com.sc.mapper.StudentMapper">
+  
+  <!-- 全局二级缓存默认是开启的，只需再开启局部二级缓存 -->
+  <cache></cache>
+
+  <select id="getStudents" parameterType="Student"
+          resultType="Student">
+     select * from student 
+      <where>
+	     <!-- <if test="stuName!=null">
+	        and stuName like concat('%',#{stuName},'%')
+	     </if> -->
+	     
+	     <choose>
+	       <when test="stuName!=null">
+	          and stuName like concat('%',#{stuName},'%')
+	       </when>
+	       <otherwise>
+	          and stuId>2
+	       </otherwise>
+	     </choose>
+	     
+	     <if test="names!=null">
+	          and stuName in 
+	          <!--  (值1,值2,值3……) -->
+	          <foreach collection="names" item="name"
+	                  open="(" separator="," close=")">
+	             #{name}
+	          </foreach>
+	     </if>
+	     
+     </where>
+  </select>
+  
+</mapper> 

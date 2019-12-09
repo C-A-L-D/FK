@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                   <!-- 对应接口的完整路径 -->
+<mapper namespace="com.sc.mapper.ClassesMapper">
+
+   <!-- 结果映射 -->
+   <resultMap type="Classes" id="classesMap" autoMapping="true">
+      <id column="classesId" property="classesId"/>
+      <!-- <result column="classesName" property="classesName"/>
+      <result column="classesInfo" property="classesInfo"/>
+      <result column="teacherId" property="teacherId"/> -->
+      
+      <!-- 一对一的配置start -->
+      <association property="teacher" javaType="Teacher" autoMapping="true">
+          <id column="teacherId" property="teacherId"/>
+          <!-- <result column="teacherName" property="teacherName"/>
+          <result column="teacherNumber" property="teacherNumber"/>
+          <result column="teacherAge" property="teacherAge"/> -->
+      </association>
+      <!-- 一对一的配置end -->
+   </resultMap>
+   
+   <select id="select" resultMap="classesMap">
+      SELECT * FROM classes c
+	  LEFT JOIN teacher t
+	  ON c.teacherId=t.teacherId
+   </select>
+   
+   
+   <resultMap type="Classes" id="classesMap1" autoMapping="true">
+       <id column="classesId" property="classesId"/>
+       
+       <!-- 一对多的配置start -->
+       <collection property="students" ofType="Student" autoMapping="true">
+           <id column="stuId" property="stuId"/>
+       </collection>
+       <!-- 一对多的配置end -->
+   </resultMap>
+   
+   <select id="select1" resultMap="classesMap1">
+      SELECT * FROM classes c
+	  LEFT JOIN student s
+	  on c.classesId=s.classesId
+   </select>
+  
+</mapper> 
